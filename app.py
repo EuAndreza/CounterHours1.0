@@ -9,5 +9,15 @@ def index():
 	return render_template('index.html')
 
 
+@app.route('/calculate', methods['GET', 'POST'])
+def Counter():
+    if request.method == 'POST':
+        horaEntrada = request.form['entrada']
+        horaSaida = request.form['saida']
+
+        enviar = counter(horaEntrada,horaSaida)
+        return enviar
+
+
 if __name__ == '__main__':
 	app.run(debug=True, port=5005)
